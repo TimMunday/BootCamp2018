@@ -1,0 +1,9 @@
+[
+  "test_fraction.py::test_fraction_init",
+  "test_fraction.py::test_fraction_str",
+  "test_fraction.py::test_fraction_float",
+  "test_fraction.py::test_fraction_eq",
+  "test_month.py::test_month",
+  "test_operate.py::test_operate",
+  "test_smalfac.py::test_smalfac"
+]

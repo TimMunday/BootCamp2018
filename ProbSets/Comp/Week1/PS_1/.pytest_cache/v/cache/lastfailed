@@ -1,0 +1,7 @@
+{
+  "test_fraction.py::test_fraction_eq": true,
+  "test_fraction.py::test_fraction_float": true,
+  "test_fraction.py::test_fraction_init": true,
+  "test_fraction.py::test_fraction_str": true,
+  "test_smalfac.py::test_smalfac": true
+}
