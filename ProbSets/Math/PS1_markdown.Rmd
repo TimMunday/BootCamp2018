@@ -1,0 +1,151 @@
+---
+title: "Math Problem Set 1"
+author: "Tim Munday"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+{
+knitr::opts_chunk$set(echo = TRUE)
+
+  rm(list = ls())
+  
+  Sys.setenv(JAVA_HOME="C:\\Program Files (x86)\\Java\\jre1.8.0_144")
+  if(!require(rJava)){
+    install.packages('rJava')
+    library(rJava)
+  }
+}
+  
+```  
+
+#Section one answers
+
+\textbf{Ex 1.3}
+
+\setlength{\leftskip}{10pt}
+
+G1 - Since G1 only includes open sets, it is not closed under complements and finite unions (since the complements of open sets are necessarily closed), and so cannot be an algebra.
+
+G2 - G2 is an algebra, but not a $\sigma$-algebra. It fulfils the two requirements of containing the empty set and being closed under complements and finite unions that are needed to be an algebra. However, since the unions are not countable G2 is not a $\sigma$-algebra.
+
+G3 - G3 is a $\sigma$-algebra. It passes both requirements: containing the empty set and is closed under countable unions.
+
+\setlength{\leftskip}{0pt}
+
+\textbf{Ex 1.7}
+
+\setlength{\leftskip}{10pt}
+
+\textbf{Part a} \newline
+We know that both examples are $\sigma$-algebras. Both contain the empty set (by definition), and are closed under countable unions.
+Then since $P(X)$ is the largest set such that all members are in $X$, it must be the largest $\sigma$-algebra.
+
+
+\textbf{Part b}  \newline
+The first condition for a $\sigma$-algebra is that $\emptyset$ is a member.The second condition is that a $\sigma$-algebra must be closed under complements. Thus if it contains $\emptyset$ it must also contain $X$ at a minimum. Therefore the smallest $\sigma$-algebra is $\{\emptyset, X \}$.
+
+\setlength{\leftskip}{0pt}
+
+\textbf{Ex 1.10}
+
+  \setlength{\leftskip}{10pt}
+
+\textbf{Condition 1} \newline
+If $\emptyset$ is in all $S_\alpha$ then it is also in the intersection of the $S_\alpha$, i.e. it is contained within $\bigcap_\alpha S_\alpha$.
+
+\textbf{Condition 2} \newline
+Suppose $A \in \bigcap_\alpha S_\alpha$ then clearly $A$ is in all $S_\alpha$. Since all the $S_\alpha$ are closed under complements (as they are $\sigma$-algebras), then $A^c$ is in all $S_\alpha$ and so is also in the intersection of the $S_\alpha$. Therefore the intersection of the $S_\alpha$ is closed under complements, so the second condition is satisfied.
+
+  \setlength{\leftskip}{0pt}
+
+\textbf{Ex 1.17}
+
+  \setlength{\leftskip}{10pt}
+
+\textbf{Prove monotonicity} \newline
+We want to prove $\mu$ is montone. i.e. if $A, B \in S, A \subset B$ then $\mu(A) \leqslant \mu(B)$
+
+Let us define $Y = B \cap A^c$
+We know that $Y \in S$
+$\mu(Y \cap A) = \mu(A) + \mu(Y)$ as $A$ and $Y$ are disjoint
+$\mu(B) = \mu(A \cap B) + \mu(Y)$
+$=\mu(A) + \mu(Y)$
+Since $\mu(Y) \geqslant 0$
+Then $\mu(A) \leqslant \mu(B)$
+So the proposition is proved
+
+\textbf{Prove countable subadditivity} \newline
+Define a sequence of new sets: $B_1 = A_1$, $B_2 = A_2 - A_1$, $B_3 = A_3 - (A_1 \cup A_2)$ and so on and so forth.
+Then we notice that $\cup_{n}A_n = \cup_{n} B_n$
+We have already proved monotonicity, therefore we know that $\mu(B_n) \leqslant \mu(A_n)$ for all $n$. Summing over n we get the result that $\mu(\cup_{n} A_n) \leqslant \Sigma_{n}\mu(A_n)$
+
+  \setlength{\leftskip}{0pt}
+
+\textbf{Ex 1.18}
+
+  \setlength{\leftskip}{10pt}
+  
+There are two conditions for a measure, that it assigns zero to the empty set, and that the measure of the union of a collection of sets is equal to the sum of the measures of those sets, if the sets are disjoint.
+
+\textbf{Condition 1} \newline
+$\lambda(\emptyset) = \mu(\emptyset \cap B)$
+$= \mu(\emptyset)$
+$=0$
+
+\textbf{Condition 2} \newline
+$lambda(\cup_{i}^{\infty} A_i) = \mu(\cup_{i}^{\infty} A_i \cap B)$
+If the $A$'s are disjoint, then so are their intersections with B. So defining $Y_i = A_i \cap B$ we can write:
+$\mu(\cup_{i}^{\infty}) = \Sigma \mu(Y_i)$
+$=\Sigma \mu(A_i \cap B)$
+
+  \setlength{\leftskip}{0pt}
+
+\textbf{Ex 1.20}
+
+  \setlength{\leftskip}{10pt}
+
+We realise that because we have a decreasing sequence of sets, $A_1 - A_n$ gets larger as n grows.
+
+We can then use the result for increasing sets that is in the notes to construct the proof for decreasing sets.
+
+$\mu(\cap_{i=1}^\infty A_i) = \mu[A_1 - \cup_{i=1}^\infty (A_1 - A_i) ]$
+$= \mu(A_1) - \mu[\cup_{i=1}^\infty (A_1 - A_n)]$
+$= \mu(A_1) - \lim_{n \to \infty} \mu(A_1 - A_n) = \mu(A_1) - \lim_{n \to \infty} [\mu(A_1) - \mu(A_n)]$
+$= \lim_{n \to \infty} \mu(A_n)$
+
+  \setlength{\leftskip}{0pt}
+
+# Section 2 answers
+
+\textbf{Ex 2.10}
+
+  \setlength{\leftskip}{10pt}
+
+We know that since $\mu^*$ is an outer-measure, it is countably subadditive. i.e. $\mu^{*}(\cup_{i}^{\infty}A_i) \leqslant \Sigma_{i} \mu^{*}(A_i)$
+To prove the statement we can show that the $\geqslant$ in Theorem 2.8 can be replaced by a $\leqslant$.
+
+Rewriting the statement regarding countable subadditivity gives:
+$\mu^{*}(\cup\{B\cap E, B\cap E^{c}\}) \leqslant \mu^{*}(B \cap E) + \mu^{*}(B \cap E^{c})$
+By the defintion of B we can say that the left hand side equals $\mu^{*}(B)$
+Thus we have shown that the $\geqslant$ in Theorem 2.8 can be replaced by a $\leqslant$ and the proposition is proved.
+
+  \setlength{\leftskip}{0pt}
+
+\textbf{Ex 2.14}
+
+  \setlength{\leftskip}{10pt}
+
+We define $\cal{O}$ as all the open sets in $\mathbb{R}$. Define $v$ as the premeasure on $\mathbb{R}$. $\mu^*$ is the outer measure on $\mathbb{R}$ generated by $v$. Denote $\sigma(\cal{O})$ as the $\sigma$-algebra generated by $\cal{O}$. Then we can use Theorem 2.12, to say that $\sigma(\cal{O})$ is contained within the $\sigma$-algebra generated by the Caratheodory construction. Since $\sigma(\cal{O})$ is the $\sigma$-algebra generated by $\cal{O}$, it is the Borel sigma field, so we have proved the statement.
+
+  \setlength{\leftskip}{0pt}
+
+
+# Section 3 answers
+
+
+
+
+
+
+
