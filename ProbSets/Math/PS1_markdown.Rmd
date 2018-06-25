@@ -190,8 +190,84 @@ Finally $|f|$ can be rewritten as the continous function: $F = (f(x)^2)^{0.5}$ t
 
   \setlength{\leftskip}{0pt}
   
+# Section 4 answers
 
+(worked with Cache and Alberto on these answers)
 
+\textbf{Exercise 4.13:}
+
+  \setlength{\leftskip}{10pt}
+
+Since $0\leq||f||<M$, we can apply Proposition $4.5$ to obtain
+$0\le\int_E||f||d\mu\le M\mu(E)<\infty$.
+Therefore $f\in\mathcal L^1(\mu, E)$.
+
+  \setlength{\leftskip}{0pt}
+
+\textbf{Exercise 4.14:}
+
+  \setlength{\leftskip}{10pt}
+
+Proof by contrapositive.
+Suppose there exists a measurable set $E'\subset E$ 
+with positive $\mu-$measure such that $f(E')=\{\infty\}$
+(we consider just $\infty$ without loss of generality).
+Then $\infty=\int_{E'}fd\mu\leq\int_Efd\mu\leq\int_E||f||d\mu$
+(the proof of the first inequality can be found in the proof of Exercise 4.16).
+Therefore $f$ is not in $\mathcal L^1(\mu, E)$.
+
+  \setlength{\leftskip}{0pt}
+
+\textbf{Exercise 4.15:}
+
+  \setlength{\leftskip}{10pt}
+
+Define $B(f):=\{s: 0\leq s\leq f, s \text{ measurable and simple}\}$.
+Since $f\leq g$, $f^+\leq g^+$ and $f^-\geq g^-$.
+Then $B(f^+)\subset B(g^+)$, which implies that $\int_Ef^+d\mu\leq\int_Eg^+d\mu$,
+and $B(g^-)\subset B(f^-)$, which implies that $\int_Ef^-d\mu\geq\int_Eg^-d\mu$.
+Therefore 
+\begin{equation*}
+\int_Efd\mu=\int_Ef^+d\mu-\int_Ef^-d\mu\leq\int_Eg^+d\mu-\int_Eg^-d\mu=\int_Egd\mu.
+\end{equation*}
+
+  \setlength{\leftskip}{0pt}
+
+\textbf{Exercise 4.16:}
+
+  \setlength{\leftskip}{10pt}
+
+Fix an arbitrary measurable simple function $s(x):=\sum_{i=1}^Nc_i\chi_{E_i}$ 
+(definition from the lecture notes).
+Since $A\subset E$, $\mu(A\cap E_i)\leq\mu(E\cap E_i)$ for each $i$.
+Then $\int_Esd\mu:=\sum_{i=1}^Nc_i\mu(A\cap E_i)\leq\sum_{i=1}^Nc_i\mu(E\cap E_i) =\int_Asd\mu$.
+Since the choice of $s$ was arbitrary, 
+\begin{equation*}
+    \int_A||f||d\mu=\sup\left\{\int_Asd\mu: 0\leq s\leq||f||, 
+    s \text{ simple}, s \text{ measurable}\right\}
+\end{equation*}
+is less than or equal to
+\begin{equation*}
+    \int_E||f||d\mu=\sup\left\{\int_Esd\mu: 0\leq s\leq||f||,
+    s \text{ simple}, s \text{ measurable}\right\}.
+\end{equation*}
+
+  \setlength{\leftskip}{0pt}
+
+\textbf{Exercise 4.21:}
+
+  \setlength{\leftskip}{10pt}
+
+Define $\lambda_1(A):=\int_Af^+d\mu$ and $\lambda_2(A):=\int_Af^-d\mu$,
+then $\int_Afd\mu=\lambda_1(A)-\lambda_2(A)$.
+Since $A=(A-B)\cup B$ and $\lambda_i$ is a measure for $i=1,2$ (Theorem 4.6), 
+$\lambda_i(A)=\lambda_i(A-B)+\lambda_i(B)$ for $i=1,2$.
+However, by Proposition 4.6 we have $\lambda_i(A-B)=0$ for $i=1,2$.
+Therefore, $\lambda_i(A)=\lambda_i(B)$ for $i=1,2$.
+This implies that $\int_Afd\mu=\lambda_1(B)-\lambda_2(B)=\int_Bfd\mu$,
+which implies the result of the corollary.
+
+  \setlength{\leftskip}{0pt}
 
 
 
