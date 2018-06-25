@@ -1,0 +1,385 @@
+---
+title: "Math Problem Set 2"
+author: "Tim Munday"
+output:
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+{
+knitr::opts_chunk$set(echo = TRUE)
+
+  rm(list = ls())
+  
+  Sys.setenv(JAVA_HOME="C:\\Program Files (x86)\\Java\\jre1.8.0_144")
+  if(!require(rJava)){
+    install.packages('rJava')
+    library(rJava)
+  }
+}
+
+
+
+```  
+
+#Section 1 questions
+
+\textbf{Ex 3.1}
+
+\setlength{\leftskip}{10pt}
+
+\textbf{(i)}
+
+\setlength{\leftskip}{20pt}
+
+$\langle x, y \rangle = \frac{1}{4}(||x + y||^2 - ||x - y||^2)$
+
+$= \frac{1}{4}(\langle x + y, x + y \rangle - \langle x - y, x - y \rangle)$
+
+We note we are on a real inner product space so we can write:
+
+$= \frac{1}{4}(\langle x, x \rangle + \langle y, y \rangle + 2\langle x, y \rangle - \langle x, x \rangle - \langle y, y \rangle + 2\langle x, y \rangle)$
+
+$= \frac{1}{4}(4\langle x, y \rangle)$
+
+$= \langle x, y \rangle$
+
+\setlength{\leftskip}{10pt}
+
+\textbf{(ii)}
+
+\setlength{\leftskip}{20pt}
+
+$||x||^2 + ||y||^2 = \frac{1}{2}(||x + y||^2 + ||x - y||^2)$
+
+Again because we in a real space we can write:
+
+$= \frac{1}{2}(\langle x, x \rangle + \langle y, y \rangle + 2\langle y, x \rangle + \langle x, x \rangle + \langle y, y \rangle - 2\langle y, x \rangle)$
+
+$= \langle x, x \rangle + \langle y, y \rangle$
+
+$= ||x||^2 + ||y||^2$
+
+\setlength{\leftskip}{0pt}
+
+\textbf{Ex 3.2}
+
+\setlength{\leftskip}{20pt}
+
+$\langle x, y \rangle = \frac{1}{4}(||x + y||^2 - ||x - y||^2 + i||x - iy||^2 - i||x + iy||^2)$
+
+Using the proof from above we can write this as:
+
+$= \mathcal{R} \langle x, y \rangle +\frac{1}{4}i(\langle x-iy, x-iy \rangle - \langle x+iy, x+iy \rangle)$
+
+$= \mathcal{R} \langle x, y \rangle +\frac{1}{4}4( \mathcal{I} \langle x, y \rangle)$
+
+$= \langle x, y \rangle$
+
+\setlength{\leftskip}{0pt}
+
+\textbf{Ex 3.3}
+
+\setlength{\leftskip}{10pt}
+
+\textbf{(i)}
+
+\setlength{\leftskip}{20pt}
+
+$cos(\theta) = \frac{\langle x, y \rangle}{||x|| ||y||}$
+
+Subbing in we have:
+
+$= \frac{\int_{0}^{1} x^6 dx}{\sqrt{\int_{0}^{1} x^2 dx}\sqrt{\int_{0}^{1} x^10 dx}}$
+
+$= \frac{1/7}{\sqrt{1/33}}$
+
+Therefore the angle is 34.84 degrees.
+
+\setlength{\leftskip}{10pt}
+
+\textbf{(ii)}
+
+\setlength{\leftskip}{20pt}
+
+$cos(\theta) = \frac{\int_{0}^{1}x^6 dx}{\sqrt{\int_{0}^{1}x^4 dx}\sqrt{\int_{0}^{1}x^8 dx}}$
+
+$= \frac{1/7}{\sqrt{1/45}}$
+
+Therefore the angle is 16.6 degrees.
+
+\setlength{\leftskip}{0pt}
+
+\textbf{Ex 3.8}
+
+\setlength{\leftskip}{10pt}
+
+\textbf{(i)}
+
+\setlength{\leftskip}{20pt}
+
+A set is orthonormal if the inner products of the combinations of elements of the set satisfy: \begin{itemize}
+\item $\langle x_{i}, x_{j} \rangle = 1$ if $i=j$
+\item $\langle x_{i}, x_{j} \rangle = 0$ if $i \neq j$
+\end{itemize}
+
+Checking the first condition:
+
+Firstly for cos(t), cos(t)
+
+$\langle cos(t), cos(t) \rangle = \frac{1}{\pi}int_{-\pi}^{\pi} cos(t)^2 dt$
+
+$= \frac{1}{\pi}[\frac{x}{2} + \frac{sin(2x)}{4}]_{-\pi}^{\pi}$
+
+$= \frac{1}{\pi}(\pi)$
+
+$=1$
+
+We can also see that this result will hold for cos(2t), cos(2t) as well. (The evaluated sin functions in the integral will still  be zero).
+
+Now checking sin(t), sin(t), and by virtue of the argument above, sin(2t), sin(2t) as well.
+
+$\langle cos(t), cos(t) \rangle = \frac{1}{\pi}int_{-\pi}^{\pi} sin(t)^2 dt$
+
+$= \frac{1}{\pi}[\frac{x}{2} - \frac{1}{4}sin(2x)]_{-\pi}^{\pi}$
+
+$=1$
+
+Now we need to check the cross terms, and verify that their inner product is zero.
+
+$\langle cos(t), sin(t) \rangle = \frac{1}{\pi}[sin(t)^2]_{-\pi}^{\pi}$
+
+$=0$
+
+And we note that this also holds for the combinations of cos(2t), sin(t) and also cos(t), sin(2t).
+
+$\langle cos(t), cos(2t) \rangle = \frac{1}{\pi}[\frac{sin(t)}{2} + \frac{sin(3t)}{6}]_{-\pi}^{\pi}$
+
+$=0$
+
+$\langle sin(t), sin(2t) \rangle = \frac{1}{\pi}[\frac{sin(t)^3}{1.5}]_{-\pi}^{\pi}$
+
+
+
+$=0$
+
+Therefore the set is orthonormal.
+
+\setlength{\leftskip}{10pt}
+
+\textbf{(ii)}
+
+\setlength{\leftskip}{20pt}
+
+$||t||^2 = \frac{1}{\pi}\int_{-\pi}^{\pi}t^2 dt$
+
+$= [\frac{t^3}{3}]_{-\pi}^{\pi}$
+
+$= [\frac{\pi^3}{3} + \frac{\pi^3}{3}]$
+
+$= 2\frac{\pi^3}{3}$
+
+Therefore
+$||t|| = (\frac{2\pi^3}{3})^{0.5}$
+
+\setlength{\leftskip}{10pt}
+
+\textbf{(iii)}
+
+\setlength{\leftskip}{20pt}
+
+Because we are dealing with an orthnormal set we can write:
+
+$Proj_{x}(cos(3t)) = \Sigma_{i}\langle S_i , cos{3t} \rangle s_i$
+
+$= \langle cos(t), cos(3t) \rangle cos(t) + \langle cos(2t), cos(3t) \rangle cos(2t) + \langle sin(t), cost(3t) \rangle sin(t) + \langle sin(2t), cos(3t) \rangle sin(2t)$
+
+After substituting in the integrals we get
+
+$=0$
+
+i.e. cos(3t) is orthogonal to all the elements in S, as its projection matrix is a zero matrix.
+
+\setlength{\leftskip}{10pt}
+
+\textbf{(iv)}
+
+\setlength{\leftskip}{20pt}
+
+$Proj_{x}(t) = \Sigma_{i}\langle S_i , t \rangle s_i$
+
+$= \langle cos(t), t \rangle cos(t) + \langle cos(2t), t \rangle cos(2t) + \langle sin(t), t \rangle sin(t) + \langle sin(2t), t \rangle sin(2t)$
+
+$= 0 + 0 + 2sin(t) - sin(2t)$
+
+$=2sin(t) - sin(2t)$
+
+\setlength{\leftskip}{0pt}
+
+\textbf{Ex 3.9}
+
+\setlength{\leftskip}{20pt}
+
+We use the fact that we can convert the rotation transformation into a matrix in the standard basis, which we call $Q$. Then, we know that if $Q^TQ = I$ then the transformation is orthonormal.
+
+\[
+   Q=
+  \left[ {\begin{array}{cc}
+   cos(\theta) & -sin(\theta) \\
+   sin(\theta) & cos(\theta) \\
+  \end{array} } \right]\\
+\]
+So
+
+\[
+  QQ^T=
+ \left[ {\begin{array}{cc}
+   cos(\theta)^2 + sin(\theta)^2 & 0 \\
+   0 & cos(\theta)^2 + sin(\theta)^2 \\
+  \end{array} } \right]\\
+\]
+
+\[
+   QQ^T=
+ \left[ {\begin{array}{cc}
+   1 & 0 \\
+   0 & 1 \\
+  \end{array}} \right]\\
+\]
+
+\setlength{\leftskip}{0pt}
+
+\textbf{Ex 3.10}
+
+\setlength{\leftskip}{10pt}
+
+\textbf{(i)}
+
+\setlength{\leftskip}{20pt}
+
+First we show that if $Q$ is orthonormal then $QQ^H = I$.
+
+If $Q$ is an orthonormal matrix, then it preserves the inner product of two vectors. i.e.
+
+$\langle m, n \rangle = \langle Qm, Qn \rangle$
+
+Which we can rewrite as:
+
+$m^Hn = (Qm)^H(Qn)$
+
+$m^Hn = m^H(Q^HQ)n$
+
+Therefore:
+
+$Q^hQ = I$
+
+Now we can show that if $QQ^H = I$, then $Q$ is orthonormal.
+
+If $QQ^H = I$
+
+Then:
+
+$\langle Qm, Qn \rangle = (Qm)^H(Qn)$
+
+$=m^HQ^HQn$
+
+$=\langle m, n \rangle$
+
+\setlength{\leftskip}{10pt}
+
+\textbf{(ii)}
+
+\setlength{\leftskip}{20pt}
+
+$||Qx|| = \sqrt{\langle Qx, Qx \rangle}$
+
+By the definition of what a orthonrmal matrix is (it preserves the inner product), we can write:
+
+$= \sqrt{\langle x, x \rangle}$
+
+$= ||x||$
+
+\setlength{\leftskip}{10pt}
+
+\textbf{(iii)}
+
+\setlength{\leftskip}{20pt}
+
+If Q is orthonormal we can write:
+
+$QQ^H = I$
+
+i.e. $Q^H = Q^{-1}$
+
+$Q^H$ is clearly orthonormal because $(Q^H)^H = Q$, therefore so is $Q^{-1}$.
+
+\setlength{\leftskip}{10pt}
+
+\textbf{(iv)}
+
+\setlength{\leftskip}{20pt}
+
+If $Q$ is orthonormal we know that $G =Q^HQ = I$
+
+For some element of $G$, we can write that:
+
+$G_{i, j} = \langle q_{i}, q_{j} \rangle$
+
+Where $q_{i}$ is the i'th column of Q.
+
+By the definition of orthornomality, we know that:
+
+$\langle q_{i}, q_{j} \rangle = 1$ if $i=j$
+
+and
+
+$\langle q_{i}, q_{j} \rangle = 0$ if $i \neq j$
+
+So we can see that when $i=j$ we are on the diagonal of $Q$, so clearly $\langle q_{i}, q_{j} \rangle = 1$ if $i=j$. And similarly, everywhere else $i \neq j$, and have zero entries, so $\langle q_{i}, q_{j} \rangle = 0$ if $i \neq j$.
+
+\setlength{\leftskip}{10pt}
+
+\textbf{(v)}
+
+\setlength{\leftskip}{20pt}
+
+We can find a counterexample to show that not all matrices with determinant equal to 1 are orthonormal.
+
+\[
+   D=
+  \left[ {\begin{array}{cc}
+   2 & 0 \\
+   0 & 0.5 \\
+  \end{array} } \right]\\
+\]
+
+We can see that:
+
+$det(D) = 1$
+
+But if we test for orthonormality:
+
+\[
+   DS^H=
+  \left[ {\begin{array}{cc}
+   4 & 0 \\
+   0 & 0.25 \\
+  \end{array} } \right] \neq I\\
+\]
+
+\setlength{\leftskip}{10pt}
+
+\textbf{vi}
+
+\setlength{\leftskip}{20pt}
+
+Checking if the product of the two matrices is an orthonormal matrix:
+
+$(Q_1Q_2)(Q_1Q_2)^H = Q_1Q_2Q_2^HQ_1^H$
+
+Then using the fact that $Q_1$ and $Q_2$ are orthonormal we can write:
+
+$Q_1Q_2Q_2^HQ_1^H = Q_1Q_1^H = I$
+
+So the product of the matrices is orthonormal.
+
