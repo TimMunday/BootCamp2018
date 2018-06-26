@@ -269,7 +269,7 @@ $m^Hn = (Qm)^H(Qn)$
 
 $m^Hn = m^H(Q^HQ)n$
 
-Therefore:
+Therefore, since this has to hold for all $m$ and $n$:
 
 $Q^hQ = I$
 
