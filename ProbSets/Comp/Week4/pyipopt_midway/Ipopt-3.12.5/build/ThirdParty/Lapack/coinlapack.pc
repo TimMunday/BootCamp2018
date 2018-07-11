@@ -1,0 +1,11 @@
+prefix=/c/Users/Tim/Documents/OSM/Mybootcampcopy/BootCamp2018/ProbSets/Comp/Week4/pyipopt_midway/Ipopt-3.12.5/build
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+
+Name: Lapack
+Description: Linear algebra package
+URL: https://projects.coin-or.org/BuildTools
+Version: 1.4.10
+Libs: -L${libdir} -lcoinlapack   -L/opt/build/x86_64-710-posix-seh-rt_v502/mingw64/opt/lib -L/opt/build/prerequisites/x86_64-zlib-static/lib -L/opt/build/prerequisites/x86_64-w64-mingw32-static/lib -LC:/Strawberry/c/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0 -LC:/Strawberry/c/bin/../lib/gcc -LC:/Strawberry/c/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Strawberry/c/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/../../../../lib -LC:/Strawberry/c/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/../../../../x86_64-w64-mingw32/lib -LC:/Strawberry/c/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/../../.. -lgfortran -lmingw32 -lmoldname -lmingwex -lmsvcrt -lquadmath -lm -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv
+Cflags:
+Requires: coinblas 

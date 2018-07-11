@@ -1,0 +1,10 @@
+prefix=/c/Users/Tim/Documents/OSM/Mybootcampcopy/BootCamp2018/ProbSets/Comp/Week4/pyipopt_midway/Ipopt-3.12.5/build
+libdir=/c/Users/Tim/Documents/OSM/Mybootcampcopy/BootCamp2018/ProbSets/Comp/Week4/pyipopt_midway/Ipopt-3.12.5/build/Ipopt/src/Apps/AmplSolver
+
+Name: IPOPT
+Description: Ampl Interface TNLP to Ipopt
+URL: https://projects.coin-or.org/Ipopt
+Version: 3.12.5
+Libs: ${libdir}/libipoptamplinterface.la 
+Cflags: -I/c/Users/Tim/Documents/OSM/Mybootcampcopy/BootCamp2018/ProbSets/Comp/Week4/pyipopt_midway/Ipopt-3.12.5/Ipopt/src/Apps/AmplSolver
+Requires: ipopt coinasl 
